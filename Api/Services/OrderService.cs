@@ -16,14 +16,14 @@ public class OrderService(IOrderRepository orders, IClientRepository clients) : 
     public async Task<OrderVm> GetByIdAsync(int id, CancellationToken ct)
     {
         var order = await orders.GetByIdAsync(id, ct);
-        if (order is null) throw new KeyNotFoundException("Order not found.");
+        if (order is null) throw new KeyNotFoundException("Ordem não encontrada.");
         return MapOrderVm(order);
     }
 
     public async Task<OrderVm> CreateAsync(OrderCreateDto dto, CancellationToken ct)
     {
         var client = await clients.GetByIdAsync(dto.ClientId, ct);
-        if (client is null) throw new KeyNotFoundException("Client not found.");
+        if (client is null) throw new KeyNotFoundException("Cliente não encontrado.");
 
         var order = new Order
         {
@@ -39,7 +39,7 @@ public class OrderService(IOrderRepository orders, IClientRepository clients) : 
     public async Task<OrderVm> UpdateAsync(int id, OrderUpdateDto dto, CancellationToken ct)
     {
         var order = await orders.GetByIdAsync(id, ct);
-        if (order is null) throw new KeyNotFoundException("Order not found.");
+        if (order is null) throw new KeyNotFoundException("Ordem não encontrada");
 
         order.TotalAmount = dto.TotalAmount;
         await orders.UpdateAsync(order, ct);
@@ -50,7 +50,7 @@ public class OrderService(IOrderRepository orders, IClientRepository clients) : 
     public async Task DeleteAsync(int id, CancellationToken ct)
     {
         var order = await orders.GetByIdAsync(id, ct);
-        if (order is null) throw new KeyNotFoundException("Order not found.");
+        if (order is null) throw new KeyNotFoundException("Ordem não encontrada");
         await orders.DeleteAsync(order, ct);
     }
 
