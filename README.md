@@ -83,8 +83,7 @@ Os testes cobrem a camada de serviços.
 
 Execução na raiz do projeto:
 
-```bash
-dotnet test
+executar na raiz do projeto: dotnet test
 
 ## Como executar
 
@@ -95,21 +94,16 @@ dotnet test
 
 ### Backend
 
-```bash
-cd api
-dotnet ef database update
-dotnet run
-API disponível em:
-
-http://localhost:5074
+- na raiz do projeto: cd api
+- depois: dotnet ef database update
+- e para rodar o back: dotnet run
+- API disponível em: http://localhost:5074
 
 Frontend
-cd web
-npm install
-npm run dev
-Frontend disponível em:
-
-http://localhost:5173
+- entrar no projeto front: cd web
+- rodar: npm install
+- e para rodar o front: npm run dev
+- Frontend disponível em: http://localhost:5173
 
 Decisões técnicas
 Separação em camadas (Controllers / Services / Repositories) para facilitar manutenção e testes
