@@ -33,25 +33,6 @@ O sistema permite:
 - Tailwind CSS
 - shadcn/ui
 
-## Estrutura do projeto
-
-DesafioClientesPedidos/
-├─ Api/
-│ ├─ Controllers/
-│ ├─ Services/
-│ ├─ Repositories/
-│ ├─ DTOs/
-│ ├─ Entities/
-│ └─ Data/
-├─ Api.Tests/
-│ ├─ Infrastructure/
-│ └─ Services/
-└─ web/
-└─ src/
-├─ components/
-├─ pages/
-└─ api.js  
-
 ## Backend – API
 
 Base URL:
@@ -105,21 +86,19 @@ Execução na raiz do projeto:
 ```bash
 dotnet test
 
-Como executar
-Pré-requisitos
+## Como executar
 
-.NET SDK 8
+### Pré-requisitos
+- .NET SDK 8
+- Node.js (recomendado LTS)
+- npm
 
-Node.js (recomendado LTS)
+### Backend
 
-npm
-
-Backend
+```bash
 cd api
 dotnet ef database update
 dotnet run
-
-
 API disponível em:
 
 http://localhost:5074
@@ -128,16 +107,17 @@ Frontend
 cd web
 npm install
 npm run dev
-
-
 Frontend disponível em:
 
 http://localhost:5173
 
 Decisões técnicas
-
 Separação em camadas (Controllers / Services / Repositories) para facilitar manutenção e testes
-Uso de DTOs/ViewModels para não expor entidades diretamente
-Validações críticas no backend, não apenas no frontend
-Edição via modal e confirmação para exclusão para melhorar a experiência e reduzir erros
-Testes focados em regras de negócio (services)
+
+Uso de DTOs e ViewModels para não expor entidades diretamente
+
+Validações críticas realizadas no backend, não apenas no frontend
+
+Edição via modal e confirmação para exclusão para melhorar a experiência do usuário
+
+Testes unitários focados nas regras de negócio (camada de serviços)
